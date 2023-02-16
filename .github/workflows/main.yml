@@ -40,7 +40,7 @@ jobs:
       url: 'gustavopaixao-dev.com'
     needs: [build, test, lint]
     steps:
-      - run: echo Deploy ${{secrets.VITE_ENV_NAME}}
+      - run: echo Deploy '${{secrets.VITE_ENV_NAME}}'
   
   deploy-qa:
     runs-on: ubuntu-latest
@@ -49,7 +49,7 @@ jobs:
       url: 'gustavopaixao-qa.com'
     needs: deploy-dev
     steps:
-      - run: echo Deploy ${{secrets.VITE_ENV_NAME}}
+      - run: echo Deploy '${{secrets.VITE_ENV_NAME}}'
       
   deploy-prd:
     runs-on: ubuntu-latest
@@ -58,4 +58,4 @@ jobs:
       url: 'gustavopaixao-prd.com'
     needs: deploy-qa
     steps:
-      - run: echo Deploy ${{secrets.VITE_ENV_NAME}}
+      - run: echo Deploy '${{secrets.VITE_ENV_NAME}}'
