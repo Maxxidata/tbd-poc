@@ -37,12 +37,25 @@ jobs:
     runs-on: ubuntu-latest
     environment: 
       name: dev
-      url: 'gustavopaixao.com'
+      url: 'gustavopaixao-dev.com'
     needs: [build, test, lint]
     steps:
-      - uses: actions/checkout@v1
-      - uses: jsmrcaga/action-netlify-deploy@master
-        with:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          NETLIFY_DEPLOY_MESSAGE: "Prod deploy v${{ github.ref }}"
+      - run: echo Deploy ${{secrets.VITE_ENV_NAME}}
+  
+  deploy-qa:
+    runs-on: ubuntu-latest
+    environment: 
+      name: qa
+      url: 'gustavopaixao-qa.com'
+    needs: deploy-dev
+    steps:
+      - run: echo Deploy ${{secrets.VITE_ENV_NAME}}
+      
+  deploy-prd:
+    runs-on: ubuntu-latest
+    environment: 
+      name: prd
+      url: 'gustavopaixao-prd.com'
+    needs: deploy-qa
+    steps:
+      - run: echo Deploy ${{secrets.VITE_ENV_NAME}}
