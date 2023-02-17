@@ -1,0 +1,46 @@
+name: Close Pull Request
+
+on:
+  pull_request:
+    types: [ closed ]
+
+jobs:
+  merge_job_dev:
+    # this job will only run if the PR has been merged
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    environment: 
+      name: dev
+      url: 'https://google.com'
+    steps:
+      - run: echo Deploy dev
+      
+  merge_job_qa:
+    # this job will only run if the PR has been merged
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    needs: merge_job_dev
+    environment: 
+      name: qa
+      url: 'https://google.com'
+    steps:
+      - run: echo Deploy qa
+      
+  merge_job_prd:
+    # this job will only run if the PR has been merged
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    needs: merge_job_qa
+    environment: 
+      name: prd
+      url: 'https://google.com'
+    steps:
+      - run: echo Deploy prd
+
+  close_job:
+    # this job will only run if the PR has been closed without being merged
+    if: github.event.pull_request.merged == false
+    runs-on: ubuntu-latest
+    steps:
+    - run: |
+        echo PR #${{ github.event.number }} has been closed without being merged
