@@ -15,7 +15,7 @@ jobs:
     steps:
       - run: echo Deploy dev
       
-   merge_job_qa:
+  merge_job_qa:
     # this job will only run if the PR has been merged
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
@@ -26,7 +26,7 @@ jobs:
     steps:
       - run: echo Deploy qa
       
-   merge_job_prd:
+  merge_job_prd:
     # this job will only run if the PR has been merged
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
