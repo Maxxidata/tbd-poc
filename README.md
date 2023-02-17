@@ -5,3 +5,5 @@ This is a Proof of Concept to test the viability of Trunk-based development (TBD
     - build, test and lint;
     - deploy to different environments;
   - Pull Request and Code Review reinforcement;
+  
+It's working!
