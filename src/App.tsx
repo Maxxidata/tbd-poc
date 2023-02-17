@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
-import GreenButton from './assets/components/GreenButton'
+import GreenButton from './components/GreenButton'
 import FeatureToggle from '../feature-toggle/FeatureToggle'
 
 function App() {
