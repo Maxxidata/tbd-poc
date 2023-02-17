@@ -8,12 +8,6 @@ function App() {
   const [count, setCount] = useState(0)
   const featureToggle = new FeatureToggle()
   
-  useEffect(() => {
-    console.log(featureToggle.isEnabledForUser('featureDeUmUser'))
-    console.log(featureToggle.isEnabledForGroup('featureParaMultiplosUsers'))
-    console.log(featureToggle.isEnabledForAdmins('featureParaAdmins'))
-  },[])
-  
   return (
     <div className="App">
       { featureToggle.isEnabled('featureBotaoVerde') ? <GreenButton /> : undefined }
