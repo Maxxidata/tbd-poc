@@ -1,0 +1,14 @@
+{ 
+  "featureBotaoVerde": "on",
+  "featureDeUmUser": {
+    "enabled": "off",
+    "user": "gbpaixao"
+  },
+  "featureParaMultiplosUsers": {
+    "enabled": "off",
+    "users": ["gbpaixao", "Andrew-Cardoso"]
+  },
+  "featureParaAdmins": {
+    "admin": "on"
+  }
+}

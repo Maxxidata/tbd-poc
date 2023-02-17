@@ -1,14 +1,23 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
+import GreenButton from './assets/components/GreenButton'
+import FeatureToggle from '../feature-toggle/FeatureToggle'
 
 function App() {
   const [count, setCount] = useState(0)
-
-  // asdfg
+  const featureToggle = new FeatureToggle()
+  
+  useEffect(() => {
+    console.log(featureToggle.isEnabledForUser('featureDeUmUser'))
+    console.log(featureToggle.isEnabledForGroup('featureParaMultiplosUsers'))
+    console.log(featureToggle.isEnabledForAdmins('featureParaAdmins'))
+  },[])
   
   return (
     <div className="App">
+      { featureToggle.isEnabled('featureBotaoVerde') ? <GreenButton /> : undefined }
+      
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src="/vite.svg" className="logo" alt="Vite logo" />
