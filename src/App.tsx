@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 import GreenButton from './components/GreenButton'
@@ -7,6 +7,12 @@ import FeatureToggle from '../feature-toggle/FeatureToggle'
 function App() {
   const [count, setCount] = useState(0)
   const featureToggle = new FeatureToggle()
+  
+  useEffect(() => {
+    console.log(featureToggle.isEnabledForUser('featureDeUmUser'))
+    console.log(featureToggle.isEnabledForGroup('featureParaMultiplosUsers'))
+    console.log(featureToggle.isEnabledForAdmins('featureParaAdmins'))
+  },[])
   
   return (
     <div className="App">
